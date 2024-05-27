@@ -14,7 +14,7 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
-public class inverted_index {
+public class Inverted_Index {
 
     public static class Map extends Mapper<LongWritable, Text, Text, Text> {
         private Text word = new Text();
@@ -50,8 +50,6 @@ public class inverted_index {
             for (String location : docCountMap.keySet()) {
                 result.append(location).append(":").append(docCountMap.get(location)).append(",");
             }
-
-            // Remove the last comma
             if (result.length() > 0) {
                 result.setLength(result.length() - 1);
             }
